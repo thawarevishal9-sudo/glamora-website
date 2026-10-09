@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glamora  -  Makeup Artist Booking</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+<nav class="navbar">
+    <a href="#home" class="logo" aria-label="Glamora home"><img src="./assets/glamora-emblem.jpg" alt="Glamora beauty emblem"><span class="logo-wordmark">Glamora</span></a>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#artists">Find Artists</a>
+        <a href="#how">How it works</a>
+        <a href="#booking">Book an artist</a>
+        <a href="#myBookings">My bookings</a>
+        <a href="./workspace.html">Artist / Admin workspace</a>
+            </div>
+    <div class="nav-actions">
+        <button class="nav-login" onclick="openAuth('login')">Login</button>
+        <a href="#artists" class="nav-book">Book a look </a>
+    </div>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+    <div class="hero-text">
+        <p class="small-title">Glamora / 2026  -  MAKEUP ARTIST BOOKING PLATFORM</p>
+        <h1>Find a makeup artist.<br><span>Check availability. Book.</span></h1>
+        <p class="hero-description">Find makeup artists near you, explore profiles and portfolio work, check available slots and book an appointment in one place.</p>
+        <div class="hero-actions">
+            <a href="#artists" class="main-button">Find an artist <span></span></a>
+            <button class="quiet-link" onclick="openAuth('signup')">Join Glamora</button>
+        </div>
+    </div>
+    <div class="hero-meta"><span>01</span><span>PUNE / INDIA</span><span>BOOK BEAUTY / SIMPLY</span></div>
+</section>
+<section class="visitor-counter-section" aria-label="Website visitor counter"><div class="visitor-counter"><span class="visitor-counter-label">Glamora VISITORS</span><strong id="hitCounter">000100</strong><span class="visitor-counter-caption">total visits</span></div></section>
+
+
+<section class="intro-section">
+    
+    <p class="section-label">THE CORE IDEA</p>
+    <h2>Finding the right makeup artist<br><i>should feel effortless.</i></h2>
+    <p class="intro-copy">Glamora is built around one main experience: <strong>discover  trust  book.</strong> Customers can search nearby artists, verify their profiles, view portfolios, choose real appointment slots, pay securely and leave a review after the service.</p>
+    <div class="core-strip">
+        <span><b>01</b> Nearby discovery</span><span><b>02</b> Artist profiles</span><span><b>03</b> Live booking</span><span><b>04</b> Payment + reviews</span>
+    </div>
+</section>
+
+<section class="artist-section" id="artists">
+    <div class="section-heading-row">
+        <div>
+            <p class="section-label">02  -  FIND YOUR ARTIST</p>
+            <h2>Beauty talent,<br><i>closer to you.</i></h2>
+        </div>
+        <div class="section-side-copy">
+            <p>Search by location and style. Each profile shows its available services, portfolio work and booking availability. Distance is calculated only after location access is granted.</p>
+            <div class="artist-filters">
+                <button class="filter active" data-filter="all">All</button>
+                <button class="filter" data-filter="bridal">Bridal</button>
+                <button class="filter" data-filter="soft">Soft glam</button>
+                <button class="filter" data-filter="party">Party</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="nearby-bar">
+        <div><span class="nearby-dot"></span><strong id="locationStatus">Pune artists nearby</strong><small id="locationHint">Use your location for distance-based discovery.</small></div>
+        <button class="outline-button" onclick="useMyLocation()">Use my location </button>
+    </div>
+
+    <div class="artist-layout">
+        <div class="artist-grid" id="artistGrid">
+            <article class="artist-card featured" data-style="bridal" data-artist-id="a1">
+                <div class="artist-image"><img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=1100&q=90" alt="Makeup artist portfolio"><span class="card-index">01</span><span class="image-tag">BRIDAL</span></div>
+                <div class="artist-card-info"><div><h3>Priya Makeup Studio</h3><p>Pune · <span data-distance="a1">Use location</span> · Bridal / Festive</p></div></div>
+                <div class="artist-actions"><button class="profile-btn" onclick="openArtist('a1')">View profile</button><button class="mini-book" onclick="startBooking('a1')">Book</button></div>
+            </article>
+            <article class="artist-card" data-style="soft" data-artist-id="a2">
+                <div class="artist-image"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=90" alt="Soft glam makeup portfolio"><span class="card-index">02</span><span class="image-tag">SOFT GLAM</span></div>
+                <div class="artist-card-info"><div><h3>Glow by Ananya</h3><p>Pune · <span data-distance="a2">Use location</span> · Soft glam</p></div></div>
+                <div class="artist-actions"><button class="profile-btn" onclick="openArtist('a2')">View profile</button><button class="mini-book" onclick="startBooking('a2')">Book</button></div>
+            </article>
+            <article class="artist-card" data-style="party" data-artist-id="a3">
+                <div class="artist-image"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=90" alt="Party makeup portfolio"><span class="card-index">03</span><span class="image-tag">PARTY</span></div>
+                <div class="artist-card-info"><div><h3>Makeup by Riya</h3><p>Pune · <span data-distance="a3">Use location</span> · Party / Editorial</p></div></div>
+                <div class="artist-actions"><button class="profile-btn" onclick="openArtist('a3')">View profile</button><button class="mini-book" onclick="startBooking('a3')">Book</button></div>
+            </article>
+        </div>
+        <aside class="map-panel" id="mapPanel">
+            <div class="map-top"><span>NEARBY MAP</span><span id="mapMode">GOOGLE MAPS API</span></div>
+            <div id="googleMap" class="google-map"></div>
+            <div class="map-fallback" id="mapFallback"><strong>Google Maps integration ready</strong><p>Add your Google Maps JavaScript API key in <code>.env</code> to render live map markers.</p></div>
+        </aside>
+    </div>
+</section>
+
+<section class="booking-focus" id="booking">
+    <div class="booking-visual">
+        <div class="booking-visual-copy"><p class="section-label">03  -  THE BOOKING ENGINE</p><h2>From “I love this look”<br>to <i>“it’s booked.”</i></h2><p>Real appointment slots, customer authentication, booking confirmation and payment are connected to the same backend flow.</p></div>
+        <div class="booking-stamp">Glamora<br><span>BOOKING / 03</span></div>
+    </div>
+    <div class="booking-card">
+        <div class="booking-card-head"><span>YOUR BEAUTY MOMENT</span><small id="bookingUserState">Login required to confirm</small></div>
+        <form id="bookingForm">
+            <label>Artist<select id="artistSelect" required><option value="">Choose artist</option><option value="a1">Priya Makeup Studio</option><option value="a2">Glow by Ananya</option><option value="a3">Makeup by Riya</option></select></label>
+            <label>Service<select id="serviceSelect" required><option value="">Choose service</option><option>Bridal Makeup</option><option>Soft Glam</option><option>Party Makeup</option><option>Editorial Makeup</option></select></label>
+            <label>Date<input type="date" id="bookingDate" required></label>
+            <label>Available slot<select id="timeSelect" required><option value="">Choose artist and date</option></select></label>
+            <button type="submit" class="booking-submit">Continue to payment <span></span></button>
+            <p id="bookingResult" class="booking-result"></p>
+        </form>
+    </div>
+</section>
+
+<section class="experience-section" id="how">
+    <div class="section-heading-row"><div><p class="section-label">04  -  HOW Glamora WORKS</p><h2>Five moments.<br><i>One seamless booking.</i></h2></div><p class="section-side-copy">The customer journey is designed around trust, transparency and a simple appointment decision.</p></div>
+    <div class="experience-grid">
+        <article><span>01</span><h3>Search nearby</h3><p>Use location-aware discovery and map markers to find artists around you.</p></article>
+        <article><span>02</span><h3>Review & explore</h3><p>Review the artist profile, services and portfolio before booking.</p></article>
+        <article><span>03</span><h3>Choose a live slot</h3><p>See the artist’s available appointment slots for your selected date.</p></article>
+        <article><span>04</span><h3>Pay in-app</h3><p>Move from confirmed slot to a secure payment gateway flow.</p></article>
+        <article><span>05</span><h3>Review the experience</h3><p>After the appointment, customers can rate the artist and write a review.</p></article>
+    </div>
+</section>
+
+<section class="booking-history-section" id="myBookings">
+  <div class="section-heading-row"><div><p class="section-label">YOUR Glamora ACCOUNT</p><h2>Bookings &<br><i>appointment updates.</i></h2></div><div class="section-side-copy"><p>Sign in to see your booking history. Artist accounts see bookings linked to their artist profile. Booking status comes from the server.</p><button class="outline-button" onclick="loadMyBookings()">Refresh bookings</button></div></div>
+  <div id="myBookingsList" class="my-bookings-list"><p class="booking-empty">Log in to view customer booking history or artist bookings.</p></div>
+</section>
+
+<section class="review-section" id="reviews">
+    <div class="review-intro"><p class="section-label">05  -  AFTER THE APPOINTMENT</p><h2>Your experience<br><i>becomes trust.</i></h2><p>Customers can rate a completed booking and leave a review. Those reviews feed the artist profile and help future customers make informed choices.</p></div>
+    <div class="review-panel">
+        <div class="review-panel-head"><span>RATINGS & REVIEWS</span><small id="reviewState">Login as a customer to review</small></div>
+        <label>Completed booking<select id="reviewBooking"><option value="">Login and choose a completed booking</option></select></label>
+        <label>Rating<select id="reviewRating"><option value="5">5 - Excellent</option><option value="4">4 - Very good</option><option value="3">3 - Good</option><option value="2">2 - Needs improvement</option><option value="1">1 - Poor</option></select></label>
+        <label>Your review<textarea id="reviewComment" placeholder="How was your Glamora experience?"></textarea></label>
+        <button class="modal-book" onclick="submitReview()">Publish review </button>
+        <p id="reviewResult" class="booking-result"></p>
+    </div>
+</section>
+
+<section class="feature-section">
+    <div><p class="section-label">06  -  PLATFORM FEATURES</p><h2>Everything needed<br>to <i>book with confidence.</i></h2></div>
+    <div class="feature-list">
+        <span><b>01</b> Nearby artist search</span><span><b>02</b> Artist profiles</span><span><b>03</b> Portfolio showcase</span><span><b>04</b> Real-time slot booking</span><span><b>05</b> In-app payment</span><span><b>06</b> Ratings & reviews</span>
+    </div>
+</section>
+
+
+
+<section class="contact-section" id="contact">
+    <div class="contact-heading"><p class="section-label">08  -  CONTACT</p><h2>Let's create<br>something <i>beautiful.</i></h2><p>Have a question, an idea or want to join Glamora as an artist? Send us a note.</p><div class="contact-signoff">Glamora / INDIA<br>DISCOVER • BOOK • GLOW</div></div>
+    <form id="contactForm"><label>Your name<input type="text" id="name" placeholder="Enter your name" required></label><label>Your email<input type="email" id="email" placeholder="Enter your email" required></label><label>Your message<textarea id="message" placeholder="Tell us what's on your mind..." required></textarea></label><button type="submit">Send message </button><small>Connected to the Glamora backend.</small></form>
+</section>
+</main>
+
+<footer><div class="footer-logo">Glamora</div><p>Makeup Artist Discovery • Booking • Payments • Reviews</p><p class="copyright">© 2026 Glamora. College Web Project.</p><p class="legal-links"><a href="/privacy-policy">Privacy Policy</a><a href="/terms-and-conditions">Terms and Conditions</a></p></footer>
+
+<!-- AUTH MODAL -->
+<div class="modal" id="authModal"><div class="modal-box auth-box"><button class="modal-close" onclick="closeAuth()">×</button><p class="section-label">Glamora ACCOUNT</p><h2 id="authTitle">Welcome back.</h2><div class="auth-switch"><button id="loginTab" class="active" onclick="setAuthMode('login')">Customer / Artist Login</button><button id="signupTab" onclick="setAuthMode('signup')">Create account</button></div><form id="authForm"><label>Email<input id="authEmail" type="email" required placeholder="you@example.com"></label><label>Password<input id="authPassword" type="password" minlength="6" required placeholder="Minimum 6 characters"></label><div id="roleField"><label>Account type<select id="authRole"><option value="customer">Customer</option><option value="artist">Makeup Artist</option></select></label></div><div id="artistInstagramField" style="display:none"><label>Instagram ID<input id="artistInstagram" type="text" placeholder="@yourmakeupstudio"></label></div><button type="submit" class="modal-book" id="authSubmit">Login </button><p id="authResult" class="booking-result"></p></form><p class="demo-note">Your account is stored in the Glamora SQLite database. Passwords are stored as secure hashes.</p></div></div>
+
+<!-- ARTIST MODAL -->
+<div class="modal" id="artistModal"><div class="modal-box artist-modal-box"><button class="modal-close" onclick="closeArtist()">×</button><p class="section-label">Glamora ARTIST PROFILE</p><div class="modal-artist-top"><img id="modalArtistImage" src="" alt="Artist portfolio"><div><h2 id="modalArtist">Artist</h2><p id="modalStyle"></p><div class="modal-stats"><div><strong id="modalStyleStat">Style</strong><span>Specialization</span></div><div><strong id="modalDistance">Use location</strong><span>Distance</span></div><div><strong id="modalVerification">Unverified</strong><span>Verification state</span></div></div></div></div></div><p id="modalBio" class="modal-copy"></p><div id="modalInstagram"></div><div class="portfolio-strip" id="modalPortfolio"></div><button class="modal-book" onclick="bookFromModal()">Choose a slot </button></div></div>
+
+<!-- PAYMENT MODAL -->
+<div class="modal" id="paymentModal"><div class="modal-box payment-box"><button class="modal-close" onclick="closePayment()">×</button><p class="section-label">04  -  SECURE PAYMENT</p><h2>Complete your<br><i>beauty booking.</i></h2><div class="payment-summary"><span id="paymentArtist">Artist</span><strong id="paymentAmount">₹0</strong><small id="paymentDetails">Service · Date · Time</small></div><div class="payment-gateway"><div><b id="gatewayTitle">Razorpay Secure Checkout</b><span id="gatewayStatus">UPI · Cards · Netbanking · Wallets</span></div><span class="gateway-mark">RZP</span></div><button class="modal-book" onclick="payNow()" id="payButton">Pay securely </button><button class="payment-cancel" onclick="closePayment(true)">Cancel booking</button><p id="paymentResult" class="booking-result"></p><small class="demo-note" id="gatewayNote">Your payment is processed through Razorpay when live credentials are configured.</small></div></div>
+
+<!-- ARTIST STUDIO -->
+<div class="modal" id="studioModal"><div class="modal-box studio-box"><button class="modal-close" onclick="closeStudio()">×</button><p class="section-label">ARTIST STUDIO</p><h2>Manage your <i>portfolio.</i></h2><p>Artist login gives the professional a place to add portfolio media for the booking profile.</p><form id="mediaForm"><label>Portfolio image<input type="file" id="mediaFile" accept="image/*" required></label><button class="modal-book" type="submit">Upload to media storage </button><p id="mediaResult" class="booking-result"></p></form></div></div>
+
+<script src="./script.js" defer></script>
+</body>
+</html>
